@@ -2,7 +2,7 @@
   'use strict';
   
     angular.module('Mifos_Self_Service')
-    
+
     .controller('LoginCtrl', ['$scope', '$rootScope', '$state','$mdToast', 'AUTH_EVENTS', 'AuthService', LoginCtrl]);
 
     function LoginCtrl($scope, $rootScope, $state,$mdToast, AUTH_EVENTS, AuthService) {
@@ -16,10 +16,10 @@
                   .hideDelay(2000)
                   .position('top right')
             );
-                  $state.go("app.dashboard");
+            $state.go("app.dashboard");
         });
       }
-      
+
     }
 
-})();  
+})();
