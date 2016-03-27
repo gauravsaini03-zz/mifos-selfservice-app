@@ -2,13 +2,14 @@
   'use strict';
 
     angular.module('Mifos_Self_Service')
-        .service('AuthService', ['$q', '$http', '$rootScope', '$resource', 'storageService', 'BASE_URL', 'USER_ROLES', AuthService]);
+        .service('AuthService', ['$q', '$http', '$rootScope', '$resource', 'storageService', 'BASE_URL', 'CLIENT_BASE_URL','USER_ROLES', AuthService]);
 
-    function AuthService($q, $http, $rootScope, $resource, storageService, BASE_URL, USER_ROLES) {
+    function AuthService($q, $http, $rootScope, $resource, storageService, BASE_URL, USER_ROLES, CLIENT_BASE_URL) {
 
         var authService     = {},
             role            = '',
-            userData        = '',       
+            userData        = '',
+            clientsData     = '',       
             isAuthenticated = false;
 
 
@@ -25,8 +26,16 @@
             $http.defaults.headers.common['Authorization'] = 'Basic ' + res.base64EncodedAuthenticationKey;;
         }
 
+        this.setClients = function(result) {
+            clientsData = result['pageItems'];
+        }
+
         this.getUser = function() {
             return userData;
+        }
+
+        this.getClients = function() {
+            return clientsData;
         }
 
         this.isAuthenticated = function () {
@@ -46,7 +55,11 @@
 
         //Resource for REST APIs
         this.doLogin = function(data) {
-            return $resource(BASE_URL+'/self/authentication', data);
+            return $resource(BASE_URL+'/self/authentication?tenantIdentifier=default', data);
+        }
+
+        this.fetchClients = function() {
+            return $resource("https://demo.openmf.org/fineract-provider/api/v1/self/clients?tenantIdentifier=default");
         }
 
     }
