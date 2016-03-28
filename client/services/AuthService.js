@@ -27,7 +27,7 @@
         }
 
         this.setClients = function(result) {
-            clientsData = result;
+            clientsData = result['pageItems'];
         }
 
         this.getUser = function() {

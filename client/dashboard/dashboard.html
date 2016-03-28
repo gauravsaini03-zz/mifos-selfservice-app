@@ -1,9 +1,34 @@
-<md-toolbar md-scroll-shrink layout="row" layout-align="start center" layout-padding>
+<md-toolbar layout="row" layout-align="start center" layout-padding>
+  <div class="navbar-text">Mifos</div>
   <span flex></span>
   <div class="navbar-right navbar-text">{{ DashboardCtrl.userData.username | uppercase }}</div>
 </md-toolbar>  
 <div class="container" layout="row" flex >
-  <md-sidenav md-is-locked-open="true" class="md-whiteframe-4dp">     Sidenav
+  <md-sidenav md-is-locked-open="true" class="md-whiteframe-z2">
+    <md-list>
+      <md-list-item ng-repeat="option in DashboardCtrl.dashboardOptions">
+        <md-button flex class="left-align">
+          {{ option }}
+        </md-button>
+      </md-list-item>
+    </md-list>
   </md-sidenav>
-  <md-content flex>Content</md-content>
+  <md-content flex>
+    <md-list>
+      <md-list-item ng-repeat="client in DashboardCtrl.clientsData">
+          <md-button flex class="left-align">
+            <md-icon md-svg-src="/images/avatar-1.svg" class="avatar"></md-icon>
+            {{ client.firstname }}
+          </md-button>
+      </md-list-item>
+    </md-list>
+    <md-list>
+      <md-list-item ng-repeat="client in DashboardCtrl.clientsData">
+          <md-button flex class="left-align">
+            <md-icon md-svg-src="/images/avatar-1.svg" class="avatar"></md-icon>
+            {{ client.firstname }}
+          </md-button>
+      </md-list-item>
+    </md-list>
+  </md-content>
 </div>
