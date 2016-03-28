@@ -1,6 +1,9 @@
 <md-toolbar md-scroll-shrink layout="row" layout-align="start center" layout-padding>
   <span flex></span>
-  <div class="navbar-right navbar-text">
-  </div>
-</md-toolbar>
-<h1>{{ "I am dash board" }}</h1>
+  <div class="navbar-right navbar-text">{{ DashboardCtrl.userData.username | uppercase }}</div>
+</md-toolbar>  
+<div class="container" layout="row" flex >
+  <md-sidenav md-is-locked-open="true" class="md-whiteframe-4dp">     Sidenav
+  </md-sidenav>
+  <md-content flex>Content</md-content>
+</div>

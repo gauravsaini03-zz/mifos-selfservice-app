@@ -10,7 +10,7 @@ angular.module('Mifos_Self_Service')
         controller: 'MainCtrl',
         controllerAs: 'vm'
       })
-      .state('app.dashboard', {
+      .state('dashboard', {
         url: '/dashboard',
         template: '<dashboard></dashboard>',
         data: {
