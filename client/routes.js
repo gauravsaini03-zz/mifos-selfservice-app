@@ -10,11 +10,9 @@ angular.module('Mifos_Self_Service')
         controller: 'MainCtrl',
         controllerAs: 'vm'
       })
-      .state('app.dashboard', {
+      .state('dashboard', {
         url: '/dashboard',
-        //templateUrl: 'app/components/common/dashboard.html',
-        controller: 'MainCtrl',
-        controllerAs: 'vm',
+        template: '<dashboard></dashboard>',
         data: {
           title: 'Profile',
           authorizedRoles: [USER_ROLES.user]
@@ -42,16 +40,7 @@ angular.module('Mifos_Self_Service')
       })
       .state('login', {
         url: '/login',
-        templateUrl: () => {
-          if (Meteor.isCordova) {
-            return '/packages/hybrid-app/auth/login/login.html';
-          }
-          else {
-            return '/packages/web-app/auth/login.html';
-          }
-        },
-        controller: 'LoginCtrl',
-        controllerAs: 'vm',
+        template: '<login></login>',
         data: {
           title: 'Login'
         }
@@ -59,10 +48,3 @@ angular.module('Mifos_Self_Service')
 
     $urlRouterProvider.otherwise("/login");
   })
-  // .run(function ($rootScope, $state) {
-  //   $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
-  //     if (error === 'AUTH_REQUIRED') {
-  //       $state.go('parties');
-  //     }
-  //   });
-  // });
