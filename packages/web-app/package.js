@@ -18,9 +18,12 @@ Package.onUse(function(api) {
   api.addFiles([
     'module.js',
     'auth/login.html',
-    'main.html',    
-    'styles/navbar.import.less',
-    'styles/main.less'
+    'clients/clients.html',
+    'clients/viewclient.html',
+    'main/MainController.js',
+    'main/home.html',    
+    'styles/main.less',
+    'styles/md-data-table.min.css'
   ], 'client');
 });
 

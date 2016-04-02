@@ -3,10 +3,10 @@ angular.module('Mifos_Self_Service').directive('mifos', function () {
     restrict: 'E',
     templateUrl: () => {
       if (Meteor.isCordova) {
-        return '/packages/hybrid-app/main.html';
+        return '/packages/hybrid-app/home.html';
       }
       else {
-        return '/packages/web-app/main.html';
+        return '/packages/web-app/main/home.html';
       }
     },
     controllerAs: 'vm',

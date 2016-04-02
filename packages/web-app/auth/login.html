@@ -10,17 +10,17 @@
     <form name="loginForm">
       <md-input-container class="md-block md-icon-float">
         <label>Username</label>
-        <md-icon md-svg-src="assets/images/ic_person_black_24px.svg" class="name"></md-icon>
-        <input ng-model="loginData.username">
+        <md-icon md-svg-src="/images/ic_person_black_24px.svg" class="name"></md-icon>
+        <input ng-model="vm.loginData.username">
       </md-input-container>
       <md-input-container class="md-block md-icon-float">
         <label>Password</label>
-        <md-icon md-svg-src="assets/images/ic_remove_red_eye_black_24px.svg" class="password"></md-icon>
-        <input type="password" ng-model="loginData.password">
+        <md-icon md-svg-src="/images/ic_vpn_key_black_24px.svg" class="password"></md-icon>
+        <input type="password" ng-model="vm.loginData.password">
       </md-input-container>
 
       <section layout="column" layout-align="start">
-        <md-button class="md-primary md-raised" ng-click="doLogin()">Login</md-button>
+        <md-button class="md-primary md-raised" ng-click="vm.doLogin()">Login</md-button>
       </section>
     </form>
   </md-card>

@@ -18,7 +18,7 @@ Package.onUse(function(api) {
   api.addFiles([
     'module.js',
     'auth/login.html',
-    'main.html'
+    'home.html'
   ], 'client');
 });
 

@@ -3,16 +3,32 @@ angular.module('Mifos_Self_Service')
     $locationProvider.html5Mode(true);
 
     $stateProvider
-      .state('app', {
-        url: '/app',
-        abstract: true,
-        //templateUrl: 'app/components/common/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'vm'
-      })
-      .state('app.dashboard', {
+      // .state('app', {
+      //   url: '/app',
+      //   abstract: true,
+      //   //templateUrl: 'app/components/common/main.html',
+      //   templateUrl: () => {
+      //     if (Meteor.isCordova) {
+      //       return '/packages/hybrid-app/main.html';
+      //     }
+      //     else {
+      //       return '/packages/web-app/auth/login.html';
+      //     }
+      //   },
+      //   controller: 'MainCtrl',
+      //   controllerAs: 'vm'
+      // })
+      .state('dashboard', {
         url: '/dashboard',
         //templateUrl: 'app/components/common/dashboard.html',
+        templateUrl: () => {
+          if (Meteor.isCordova) {
+            return '/packages/hybrid-app/misc/dashboard.html';
+          }
+          else {
+            return '/packages/web-app/misc/dashboard.html';
+          }
+        },
         controller: 'MainCtrl',
         controllerAs: 'vm',
         data: {
@@ -20,9 +36,17 @@ angular.module('Mifos_Self_Service')
           authorizedRoles: [USER_ROLES.user]
         }
       })
-      .state('app.clients', {
+      .state('clients', {
         url: '/clients',
         //templateUrl: 'app/components/client/clients.html',
+        templateUrl: () => {
+          if (Meteor.isCordova) {
+            return '/packages/hybrid-app/clients/clients.html';
+          }
+          else {
+            return '/packages/web-app/clients/clients.html';
+          }
+        },
         controller: 'ClientCtrl',
         controllerAs: 'vm',
         data: {
@@ -30,9 +54,16 @@ angular.module('Mifos_Self_Service')
           authorizedRoles: [USER_ROLES.user]
         }
       })
-      .state('app.viewclient', {
+      .state('viewclient', {
         url: '/viewclient/:clientId',
-        //templateUrl: 'app/components/client/viewclient.html',
+        templateUrl: () => {
+          if (Meteor.isCordova) {
+            return '/packages/hybrid-app/clients/viewclient.html';
+          }
+          else {
+            return '/packages/web-app/clients/viewclient.html';
+          }
+        },
         controller: 'ViewClientCtrl',
         controllerAs: 'vm',
         data: {
